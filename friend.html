@@ -10,146 +10,222 @@
 
   <!-- Loading Flat UI -->
   <link href="css/flat-ui.css" rel="stylesheet">
+  <link href="css/jquery.ui.autocomplete.css" rel="stylesheet" media="screen" />
   <link rel="shortcut icon" href="images/favicon.ico">
-  
+
   <!-- Loading customized UI -->
   <link href="css/style.css" rel="stylesheet">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-      <div class="page friend-page">
-        <h1><strong>Step2|</strong>Friend</h1>
-        <div class="container">
-          <div class="friend-wrapper">
-            <div class="row tiles">
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>
-                  <img src="images/icons/svg/compas.svg" alt="Compas" class="tile-image big-illustration">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
-              </div>
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="page friend-page">
+    <h1> <strong>Step2|</strong>
+      Friend
+    </h1>
+    <div class="container">
+      <div class="friend-wrapper">
+        <div class="row bottom-plus">
+          <div class="col-md-5 col-md-offset-3">
+            <div class="todo-search">
+              <input id="weird-name" name="weird-name" type="text" class="todo-search-field autocomplete weird-names" autocomplete="off"></div>
+          </div>
+          <div class="col-md-1">
+            <input type="submit" value="Search" class="btn btn-lg btn-info"></div>
+        </div>
 
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>                  
-                  <img src="images/icons/svg/loop.svg" alt="Infinity-Loop" class="tile-image">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
+        <div class="row tiles">
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
               </div>
+              <img src="images/icons/svg/compas.svg" alt="Compas" class="tile-image big-illustration">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
 
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>                  
-                  <img src="images/icons/svg/pencils.svg" alt="Pensils" class="tile-image">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
               </div>
+              <img src="images/icons/svg/loop.svg" alt="Infinity-Loop" class="tile-image">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
 
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>                  
-                  <img src="images/icons/svg/chat.svg" alt="Chat" class="tile-image">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
               </div>
-            </div> <!-- /tiles 1 -->
-            <div class="row tiles">
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>
-                  <img src="images/icons/svg/compas.svg" alt="Compas" class="tile-image big-illustration">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
+              <img src="images/icons/svg/pencils.svg" alt="Pensils" class="tile-image">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
               </div>
-
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>           
-                  <img src="images/icons/svg/loop.svg" alt="Infinity-Loop" class="tile-image">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
+              <img src="images/icons/svg/chat.svg" alt="Chat" class="tile-image">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
+        </div>
+        <!-- /tiles 1 -->
+        <div class="row tiles">
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
               </div>
+              <img src="images/icons/svg/compas.svg" alt="Compas" class="tile-image big-illustration">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
 
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>                  
-                  <img src="images/icons/svg/pencils.svg" alt="Pensils" class="tile-image">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
               </div>
+              <img src="images/icons/svg/loop.svg" alt="Infinity-Loop" class="tile-image">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
 
-              <div class="col-md-3">
-                <div class="tile ch-item">
-                  <div class="ch-info">
-                    <h3>Friend Name</h3>
-                  </div>                  
-                  <img src="images/icons/svg/chat.svg" alt="Chat" class="tile-image">
-                  <a class="btn btn-info btn-large btn-block" href="#fakelink">ADD</a>
-                </div>
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
               </div>
-            </div> <!-- /tiles 2 -->
-                <div class="pagination pagination-centered">
-                  <ul>
-                    <li class="previous">
-                      <a href="#" class="fui-arrow-left"></a>
-                    </li>
+              <img src="images/icons/svg/pencils.svg" alt="Pensils" class="tile-image">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
 
-                    <li><a href="#fakelink">1</a></li>
-                    <li class="active"><a href="#fakelink">2</a></li>
-                    <li><a href="#fakelink">3</a></li>
-                    <li><a href="#fakelink">4</a></li>
-                    <li><a href="#fakelink">5</a></li>
+          <div class="col-md-3">
+            <div class="tile ch-item">
+              <div class="ch-info">
+                <h3>Friend Name</h3>
+              </div>
+              <img src="images/icons/svg/chat.svg" alt="Chat" class="tile-image">
+              <a class="btn btn-info btn-large btn-block btn-add" href="#fakelink">ADD</a>
+            </div>
+          </div>
+        </div>
+        <!-- /tiles 2 -->
+        <div class="row">
+          <div class="pagination pagination-centered">
+            <ul>
+              <li class="previous">
+                <a href="#" class="fui-arrow-left"></a>
+              </li>
 
-                    <li class="next">
-                      <a href="#" class="fui-arrow-right"></a>
-                    </li>
-                  </ul>
-                </div><!-- /pagination -->
-          </div><!-- /friend-wrapper -->
-        </div> 
+              <li>
+                <a href="#fakelink">1</a>
+              </li>
+              <li class="active">
+                <a href="#fakelink">2</a>
+              </li>
+              <li>
+                <a href="#fakelink">3</a>
+              </li>
+              <li>
+                <a href="#fakelink">4</a>
+              </li>
+              <li>
+                <a href="#fakelink">5</a>
+              </li>
+
+              <li class="next">
+                <a href="#" class="fui-arrow-right"></a>
+              </li>
+            </ul>
+          </div>
+          <!-- /pagination --> </div>
       </div>
+      <!-- /friend-wrapper --> </div>
+  </div>
 
+  <!-- Load JS here for greater good -->
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="js/jquery.ui.touch-punch.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-select.js"></script>
+  <script src="js/bootstrap-switch.js"></script>
+  <script src="js/flatui-checkbox.js"></script>
+  <script src="js/flatui-radio.js"></script>
+  <script src="js/jquery.tagsinput.js"></script>
+  <script src="js/jquery.placeholder.js"></script>
 
-      <!-- Load JS here for greater good -->
-      <script src="js/jquery-1.8.3.min.js"></script>
-      <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-      <script src="js/jquery.ui.touch-punch.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/bootstrap-select.js"></script>
-      <script src="js/bootstrap-switch.js"></script>
-      <script src="js/flatui-checkbox.js"></script>
-      <script src="js/flatui-radio.js"></script>
-      <script src="js/jquery.tagsinput.js"></script>
-      <script src="js/jquery.placeholder.js"></script>
-      <script>
+  <script src="js/jquery.templating.js"></script>
+  <script src="js/jquery.ui.autocomplete.ext.js"></script>
+  <script src="js/jquery.ui.autocomplete.js"></script>
+  <script>
       
       $(document).ready(function() {
         //Do something
-        $('.btn-info').click(function(e){
+        $('.btn-add').click(function(e){
           e.preventDefault();
           $(this).toggleClass('btn-info btn-success')
           $(this).html($(this).html() == "Selected" ? "Add" : "Selected");
         })
+        
+        // Advanced matching example
+        var weird_names_list = 
+        [
+          {text: 'Curious George'},
+          {text: 'George of the Jungle'},
+          {text: 'Felix the Cat'},
+          {text: 'Curious George 1'},
+          {text: 'George of the Jungle 1'},
+          {text: 'Felix the Cat 1'},
+          {text: 'Curious George 2'},
+          {text: 'George of the Jungle 2'},
+          {text: 'Felix the Cat 2'},
+          {text: 'Curious George 3'},
+          {text: 'George of the Jungle 3'},
+          {text: 'Felix the Cat 3'}
+        ];
+        $("input.autocomplete.weird-names").autocomplete({
+          list: weird_names_list,
+          timeout: 0,
+          matcher: function(typed) {
+            if (!typed || typed.length === 0) {
+              return undefined;
+            }
+            var reg = new RegExp("\\b" + typed, "i");
+            reg.typed = typed;
+            return reg;
+          },
+          match: function(element, matcher) {
+            if (!matcher) { return false; }
+            var typed = matcher.typed;
+            element.typed = typed;
+            element.pre_match = element.text;
+            element.match = element.post_match = '';
+            var match_at = element.text.search(matcher);
+            if (match_at != -1) {
+              element.pre_match = element.text.slice(0,match_at);
+              element.match = element.text.slice(match_at,match_at + typed.length);
+              element.post_match = element.text.slice(match_at + typed.length);
+              return true;
+            }
+            return false;
+          },
+          insertText: function(obj) { return obj.text; },
+          templateText: "<li><%= pre_match %><span class='matching' ><%= match %></span><%= post_match %></li>"
+        });
+        
       });
       </script>
-    </body>
-    </html>
+</body>
+</html>

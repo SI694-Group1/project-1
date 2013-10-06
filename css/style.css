@@ -41,7 +41,6 @@ a:hover {
 /* Page */
 .page {
 	width: 100%;
-	height: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -55,7 +54,7 @@ a:hover {
 	line-height: 1;
 	letter-spacing: 6px;
 	margin: 0;
-	top: 12%;
+	top: 5%;
 	width: 100%;
 	text-align: center;
 	text-transform: uppercase;
@@ -79,6 +78,7 @@ a:hover {
 
 .login-page {
 	background: #2ecc71;
+	height: 100%;
 }
 
 .friend-page {
@@ -111,7 +111,7 @@ a:hover {
 }
 
 .friend-wrapper {
-	padding: 200px 0;
+	padding: 145px 0;
 }
 
 .edit-wrapper {
@@ -210,4 +210,22 @@ a:hover {
 	-ms-transform: scale(1);
 	transform: scale(1);
 	opacity: 1;
+}
+
+.todo-search {
+	position: relative;
+	background: #3498db;
+	background-size: 16px 16px;
+	border-radius: 6px 6px;
+	color: #fff;
+	padding: 6px 25px;
+}
+
+input.todo-search-field {
+	width: 90%;
+}
+
+.matching {
+    font-weight: bold;
+    text-decoration: underline;
 }
