@@ -11,78 +11,148 @@
   <!-- Loading Flat UI -->
   <link href="css/flat-ui.css" rel="stylesheet">
   <link rel="shortcut icon" href="images/favicon.ico">
-  
+
   <!-- Loading customized UI -->
   <link href="css/style.css" rel="stylesheet">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-      <div class="page result-page">
-        <h1><strong>Step4|</strong>Result</h1>
-        <div class="container">
-          <div class="result-wrapper">
-            <div class="row">
-              <div class="col-md-4">
-                <h4 class="connect">Insert the question here</h4>
-                <ul class="folding folded">
-                  <li class="fb">
-                    <div class="content">
-                      [Facebook snippet]
-                      <a href="" class="fontawesome-facebook"></a>
-                    </div>
-                  </li>
-                  <li class="tw">
-                    <div class="content">
-                      [Twitter snippet]
-                      <a href="" class="fontawesome-twitter"></a> 
-                    </div>
-                  </li>
-                  <li class="gp">
-                    <div class="content">
-                      [Google+ snippet]
-                      <a href="" class="fontawesome-google-plus"></a>
-                    </div>
-                  </li>
-                  <li class="rss">
-                    <div class="content">
-                      [Simple RSS link]
-                      <a href="" class="fontawesome-rss"></a>
-                    </div>
-                  </li>
-                </ul>
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="page result-page">
+    <h1> <strong>Step4|</strong>
+      Result
+    </h1>
+    <div class="container">
+      <div class="result-wrapper">
+        <div class="row">
+          <div class="col-md-4">
+            <nav id="dr-menu" class="dr-menu">
+              <div class="dr-trigger">
+                <span class="dr-icon dr-icon-menu"></span>
+                <a class="dr-label">Question</a>
               </div>
-              <div class="col-md-8">Graph</div>
-            </div>
-          </div><!-- /result-wrapper -->
-        </div> 
+              <ul>
+                <li>
+                  <span class="input-icon fui-radio-unchecked"></span>
+                  <a href="#">option 1&nbsp;-&nbsp;55%</a>
+                </li>
+                <li>
+                  <span class="input-icon fui-radio-unchecked"></span>
+                  <a href="#">option 2&nbsp;-&nbsp;25%</a>
+                </li>
+                <li>
+                  <span class="input-icon fui-radio-unchecked"></span>
+                  <a href="#">option 3&nbsp;-&nbsp;20%</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-8">
+            <div id="chartContainer" style="max-width:700px;height: 300px;"></div>
+          </div>
+        </div>
       </div>
+      <!-- /result-wrapper --> </div>
+  </div>
 
-
-      <!-- Load JS here for greater good -->
-      <script src="js/jquery-1.8.3.min.js"></script>
-      <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-      <script src="js/jquery.ui.touch-punch.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/bootstrap-select.js"></script>
-      <script src="js/bootstrap-switch.js"></script>
-      <script src="js/flatui-checkbox.js"></script>
-      <script src="js/flatui-radio.js"></script>
-      <script src="js/jquery.tagsinput.js"></script>
-      <script src="js/jquery.placeholder.js"></script>
-      <script>
+  <!-- Load JS here for greater good -->
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="js/jquery.ui.touch-punch.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-select.js"></script>
+  <script src="js/bootstrap-switch.js"></script>
+  <script src="js/flatui-checkbox.js"></script>
+  <script src="js/flatui-radio.js"></script>
+  <script src="js/jquery.tagsinput.js"></script>
+  <script src="js/jquery.placeholder.js"></script>
+  <script src="js/dx.chartjs.js"></script>
+  <script>
       
       $(document).ready(function() {
         //Do something
-        $('.btn-info').click(function(e){
-          e.preventDefault();
-          $(this).toggleClass('btn-info btn-success')
-          $(this).html($(this).html() == "Selected" ? "Add" : "Selected");
-        })
-      });
-      </script>
-    </body>
-    </html>
+        $("#chartContainer").dxChart({
+            dataSource: [
+                {option: "option1", value: 55},
+                {option: "option2", value: 25},
+                {option: "option3", value: 20},
+            ],
+            series: {
+                argumentField: "option",
+                valueField: "value",
+                name: "percentage",
+                type: "bar",
+                color: '#ffa500'
+            },
+            tooltip: {
+              enabled: true,
+              customizeText: function () {
+                return this.seriesName + ": " + this.valueText + " %";
+              }
+            },
+            title: {
+              text: "Survey Final Result",
+              font: { 
+                color: '#fff',
+                size: 24,
+              }
+            },
+            argumentAxis: {
+              label: {
+                font: { 
+                  color: '#fff',
+                  size: 18, 
+                }
+              }
+            },
+            legend: {
+              font: { 
+                color: '#fff',
+                size: 18, 
+              }
+            },
+            scale: {
+              label: {
+                font: {
+                  color: '#fff',
+                  size: 18,
+                }
+              }
+            }                               
+        });
+        
+        var YTMenu = (function() {
+        function init() {
+          [].slice.call( document.querySelectorAll( '.dr-menu' ) ).forEach( function( el, i ) {
+
+            var trigger = el.querySelector( 'div.dr-trigger' ),
+              icon = trigger.querySelector( 'span.dr-icon-menu' ),
+              open = false;
+
+            trigger.addEventListener( 'click', function( event ) {
+              if( !open ) {
+                el.className += ' dr-menu-open';
+                open = true;
+              }
+            }, false );
+
+            icon.addEventListener( 'click', function( event ) {
+              if( open ) {
+                event.stopPropagation();
+                open = false;
+                el.className = el.className.replace(/\bdr-menu-open\b/,'');
+                return false;
+              }
+            }, false );
+
+          } );
+        }
+        init();
+      })();
+    });
+  </script>
+</body>
+</html>
