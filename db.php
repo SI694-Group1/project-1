@@ -1,6 +1,6 @@
 <?php
 // Create connection
-$con=mysqli_connect("localhost","root","","facebook");
+$con=mysqli_connect("localhost","root","","facebookapi_project1");
 
 // Check connection
 if (mysqli_connect_errno($con))
