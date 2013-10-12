@@ -136,8 +136,8 @@ if ($user) {
 
   <script id="friendTemplate" type="text/x-jquery-tmpl">
    <div class="col-md-3">
-     <div class="tile ch-item">
-      <div class="ch-info" data-id="${id}">
+     <div class="tile ch-item" data-id="${id}" data-id="${id}">
+      <div class="ch-info">
          <h3>${name}</h3>
        </div>
        <img src="${img}" alt="friendPhoto" class="tile-image big-illustration" style="border-radius: 50%;">
@@ -160,13 +160,26 @@ if ($user) {
         $('#friendTemplate').tmpl(friendData)
           .appendTo('#gallery');
         
+        function addOrRemove(array, value) {
+            var index = array.indexOf(value);
+            if (index === -1) {
+                array.push(value);
+            } else {
+                array.splice(index, 1);
+            }
+        }
+        
+        var friendToDb = [];
         $('.btn-add').click(function(e){
           e.preventDefault();
           $(this).toggleClass('btn-info btn-success');
           $(this).toggleClass('friend-selected');
-          $(this).html($(this).html() == "Selected" ? "Add" : "Selected");
-          console.log($('.friend-selected'));
-        })
+          $(this).html($(this).html() == "Selected" ? "Add" : "Selected");         
+          addOrRemove(friendToDb, $(this).parent().data('id'));
+          // The list of uid from friends who are selected
+          console.log(friendToDb);
+        })       
+        
         
         // Advanced matching example
         var weird_names_list = [
