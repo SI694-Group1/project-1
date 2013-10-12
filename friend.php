@@ -1,7 +1,6 @@
 <?php
-
-require_once "db.php";
 session_start();
+require_once "db.php";
 require 'src/facebook.php';
 
 // Create our Application instance
@@ -26,7 +25,8 @@ if ($user) {
 
 // Login or logout url will be needed depending on current user state.
 if ($user) {
-  $logoutUrl = $facebook->getLogoutUrl();
+  $params = array( 'next' => 'http://localhost/project-1/logout.php' );
+  $logoutUrl = $facebook->getLogoutUrl($params);
 } else {
   $loginUrl = $facebook->getLoginUrl();
 }
@@ -36,9 +36,12 @@ if ($user) {
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-  include 'header.php'
-?>
+<head>
+  <title>Friend</title>
+  <?php
+    include 'header.php'
+  ?>
+</head>
 
 <body>
   <div class="page friend-page">
@@ -80,7 +83,11 @@ if ($user) {
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#fakelink">
+                <?php 
+                  if ($user):
+                    echo '<a href="'.$logoutUrl.'">';
+                  endif
+                ?>                  
                   <span class="fui-user" style="padding-left: 5px;"></span>
                   <span style="padding-left: 10px;">Logout</span>
                 </a>
