@@ -856,7 +856,6 @@ address {
   opacity: 0;
   position: absolute;
   top: 0;
-  width: 234px;
   -webkit-transform: scale(1, 0.99);
   -webkit-transform-origin: 0 0;
   visibility: hidden;
@@ -966,7 +965,6 @@ address {
   border-bottom-color: #16a085;
   border-left: none;
   color: #ffffff;
-  padding-left: 20px;
 }
 .navbar-inverse .nav > li.active + li > a {
   border-left: none;
@@ -977,11 +975,10 @@ address {
   border-bottom: 2px solid #2c3e50;
   border-left: 2px solid #2c3e50;
   color: #ffffff;
-  padding: 16px 20px 15px;
+  padding: 18px 30px 15px;
   line-height: 20px;
 }
 .navbar-inverse .nav.pull-right {
-  margin-right: -15px;
 }
 .navbar-inverse .nav.pull-right > li > a {
   border-radius: 0 6px 6px 0;
@@ -2044,7 +2041,6 @@ fieldset[disabled] .form-control + .input-icon,
   background-color: #f3f4f5;
   border: none;
   display: block;
-  margin-top: 8px;
   opacity: 0;
   padding: 0;
   visibility: hidden;
@@ -2066,7 +2062,7 @@ fieldset[disabled] .form-control + .input-icon,
   margin-top: 2px;
 }
 .open > .dropdown-menu {
-  margin-top: 18px;
+  margin-right: 14px;
   opacity: 1;
   visibility: visible;
 }

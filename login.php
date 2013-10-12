@@ -1,4 +1,36 @@
-<?php session_start(); ?>
+<?php
+
+require 'src/facebook.php';
+
+// Create our Application instance
+$facebook = new Facebook(array(
+  'appId'  => '1423350391211975',
+  'secret' => '8fdbeefaefd334de090d7ebe8c27d92d',
+));
+
+// Get User ID
+$user = $facebook->getUser();
+
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+    $user_name = $user_profile['name'];
+  } catch (FacebookApiException $e) {
+    error_log($e);
+    $user = null;
+  }
+}
+
+// Login or logout url will be needed depending on current user state.
+if ($user) {
+  $logoutUrl = $facebook->getLogoutUrl();
+} else {
+  $loginUrl = $facebook->getLoginUrl();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,87 +59,30 @@
       Login
     </h1>
     <div class="login-wrapper">
-      <div class="login-icon">
-        <img src="./images/login/facebook.png" alt="Welcome to Vote" />
-        <h4>
-          Welcome to
-          <small>Vote</small>
-        </h4>
-      </div>
-
-      <div class="login-form">
-        <div class="form-group">
-          <input type="text" class="form-control login-field" value="" placeholder="Username" id="login-name" />
-          <label class="login-field-icon fui-user" for="login-name"></label>
+      <div class="row">
+        <div class="col-md-2">
+          <?php 
+            if($user) {
+              echo '<img src="https://graph.facebook.com/'.$user.'/picture?width=100&height=100">';
+              echo '<h5>Hi, '.$user_name.'</h5>';
+            } else {
+              echo '<h5>Welcome to Vote App!</h5>';
+            }    
+          ?>
         </div>
-
-        <div class="form-group">
-          <input type="password" class="form-control login-field" value="" placeholder="Password" id="login-pass" />
-          <label class="login-field-icon fui-lock" for="login-pass"></label>
-        </div>
-
-        <!-- <a class="btn btn-primary btn-lg btn-block" href="#">Login</a>
-        <a class="login-link" href="$loginUrl">Please login with your facebook account</a> -->
-        
-        
-        <?php
-
-require 'facebook-php-sdk-master/src/facebook.php';
-
-$facebook = new Facebook(array(
-  'appId'  => '215611218607442',
-  'secret' => '6765f0d0646459dafd11b2c93929a1b6',
-));
-
-// Get User ID
-$userx = $facebook->getUser();
-
-// We may or may not have this data based on whether the user is logged in.
-//
-// If we have a $user id here, it means we know the user is logged into
-// Facebook, but we don't know if the access token is valid. An access
-// token is invalid if the user logged out of Facebook.
-
-if ($userx) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
-  } catch (FacebookApiException $e) {
-    error_log($e);
-    $userx = null;
-  }
-}
-
-// Login or logout url will be needed depending on current user state.
-if ($userx) {
-  $params = array( 'next' => 'http://localhost:8888/project-1/login.php' );
-  $logoutUrl = $facebook->getLogoutUrl($params);
-  session_destroy();
-} else {
-  $loginUrl = $facebook->getLoginUrl();
-}
-
-?>
-        
-        
-    <?php if ($userx): ?>
-      <a href="<?php echo $logoutUrl; ?>">Logout</a>
-    <?php else: ?>
-      <div>
-        <a href="<?php echo $loginUrl; ?>">Login with Facebook</a>
-      </div>
-    <?php endif ?>
-        
-        
-        <?php if($userx): ?>
-          <h3> Welcome, </h3>
-          <img src="https://graph.facebook.com/<?php echo $userx; ?>/picture">
-        
+        <div class="col-md-10">
+          <div class="login-form">
+            <?php if ($user): ?>
+            <a class="btn btn-primary btn-lg btn-block" href="friend.php">Already Login. Let's Get Start!</a>
+          <?php else: ?>
+          <div>
+            <a class="btn btn-primary btn-lg btn-block" href="<?php echo $loginUrl; ?>">Please Login to Facebook</a>
+          </div>
         <?php endif ?>
-        
       </div>
     </div>
   </div>
+</div>
 
   <!-- Load JS here for greater good -->
   <script src="js/jquery-1.8.3.min.js"></script>

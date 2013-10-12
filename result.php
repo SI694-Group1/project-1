@@ -22,9 +22,47 @@
 </head>
 <body>
   <div class="page result-page">
-    <h1> <strong>Step4|</strong>
-      Result
-    </h1>
+          <div class="navbar navbar-inverse">
+            <div class="navbar-header">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
+            </div>            
+            <div class="navbar-collapse collapse" id="nav-collapse-01">
+              <ul class="nav">
+                <li>
+                  <a href="#fakelink">
+                    Step1
+                  </a>
+                </li>
+                <li>
+                  <a href="#fakelink">
+                    Step2
+                  </a>
+                </li>
+                <li>
+                  <a href="#fakelink">
+                    Step3
+                  </a>
+                </li>
+                <li  class="active">
+                  <a href="#fakelink">
+                    Step4
+                  </a>
+                </li>              
+              </ul>
+              <ul class="nav pull-right">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#fakelink"><i class="icon-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav -->
+          </div> <!-- /navbar -->
+    <div class="row">
+      <h1> <strong>Step4|</strong>
+        Result
+      </h1>
+    </div>
     <div class="container">
       <div class="result-wrapper">
         <div class="row">
@@ -51,9 +89,16 @@
             </nav>
           </div>
           <div class="col-md-8">
-            <div id="chartContainer" style="max-width:700px;height: 300px;"></div>
+            <div id="chartBG">
+              <div id="barChartContainer" style="max-width:700px;height: 300px;"></div>
+            </div>
           </div>
         </div>
+<!--         <div class="row top-plus">
+          <div class="col-md-4 col-md-offset-4">
+            <div id="pieChartContainer"></div>
+          </div>
+        </div> -->
       </div>
       <!-- /result-wrapper --> </div>
   </div>
@@ -74,7 +119,7 @@
       
       $(document).ready(function() {
         //Do something
-        $("#chartContainer").dxChart({
+        $("#barChartContainer").dxChart({
             dataSource: [
                 {option: "option1", value: 55},
                 {option: "option2", value: 25},
@@ -94,7 +139,7 @@
               }
             },
             title: {
-              text: "Survey Final Result",
+              text: "Bar Chart Result",
               font: { 
                 color: '#fff',
                 size: 24,
