@@ -97,6 +97,11 @@ background:#c0392b;
 height:100%;
 }
 
+.logout-page {
+    background: #8e44ad;
+    height: 100%;
+}
+
 .login-icon {
 left:185px;
 top:300px;
