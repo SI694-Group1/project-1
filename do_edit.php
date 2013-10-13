@@ -39,6 +39,6 @@ echo "<a href='$loginUrl'>Login with Facebook</a>";
 
 if($user)
 {
-$ret_obj = $facebook->api('/me/feed', 'POST', array( 'link' => 'www.example.com', 'message' => 'Posting with the PHP SDK!', 'access_token' => $access_token));
+$ret_obj = $facebook->api('/me/feed', 'POST', array( 'link' => 'www.example.com', 'message' => 'Here is a Survey for you', 'access_token' => $access_token));
 }
 ?>
