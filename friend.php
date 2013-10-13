@@ -143,7 +143,7 @@ if ($user) {
 
   <script id="friendTemplate" type="text/x-jquery-tmpl">
    <div class="col-md-3">
-     <div class="tile ch-item" data-id="${id}" data-id="${id}">
+     <div class="tile ch-item" data-id="${id}" data-name="${name}">
       <div class="ch-info">
          <h3>${name}</h3>
        </div>
@@ -176,16 +176,20 @@ if ($user) {
             }
         }
         
-        var friendToDb = [];
+        var idToDb = [];
+        var nameToDb = [];
+        var friendToDb ={};
         $('.btn-add').click(function(e){
           e.preventDefault();
           $(this).toggleClass('btn-info btn-success');
           $(this).toggleClass('friend-selected');
           $(this).html($(this).html() == "Selected" ? "Add" : "Selected");         
-          addOrRemove(friendToDb, $(this).parent().data('id'));
+          addOrRemove(idToDb, $(this).parent().data('id'));
+          addOrRemove(nameToDb, $(this).parent().data('name'));
+          friendToDb = _.object(idToDb, nameToDb)
           // The list of uid from friends who are selected
-          console.log(friendToDb);
-        })       
+          console.log(JSON.stringify(friendToDb));
+        })
         
         
         // Advanced matching example

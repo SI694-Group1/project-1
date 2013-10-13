@@ -17,3 +17,5 @@
 <script src="js/jquery.templating.js"></script>
 <script src="js/jquery.ui.autocomplete.ext.js"></script>
 <script src="js/jquery.ui.autocomplete.js"></script>
+
+<script src="js/underscore-min.js"></script>
