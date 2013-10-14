@@ -22,13 +22,6 @@ if ($user) {
   }
 }
 
-// Login or logout url will be needed depending on current user state.
-if ($user) {
-  $logoutUrl = $facebook->getLogoutUrl();
-} else {
-  $loginUrl = $facebook->getLoginUrl();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +31,31 @@ if ($user) {
   <?php
     include 'header.php'
   ?>
+  <script type="text/javascript">
+  window.fbAsyncInit = function() {
+      FB.init({
+      appId      : '1423350391211975', // replace your app id here
+      status     : true, 
+      cookie     : true,
+      xfbml      : true  
+      });
+  };
+  (function(d){
+      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      ref.parentNode.insertBefore(js, ref);
+  }(document));
+   
+function FBLogin(){
+  FB.login(function(response){
+    if(response.authResponse){
+      window.location.href = "edit.php";
+    }
+  }, {scope: 'email, user_likes'});
+}
+  </script>  
 </head>
 <body>
   <div class="page login-page">
@@ -62,7 +80,7 @@ if ($user) {
             <a class="btn btn-primary btn-lg btn-block" href="friend.php">Already Login. Let's Get Start!</a>
           <?php else: ?>
           <div>
-            <a class="btn btn-primary btn-lg btn-block" href="<?php echo $loginUrl; ?>">Please Login to Facebook</a>
+            <a class="btn btn-primary btn-lg btn-block" onclick="FBLogin();">Please Login to Facebook</a>
           </div>
         <?php endif ?>
       </div>
