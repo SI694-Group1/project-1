@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2013 at 03:43 PM
+-- Generation Time: Oct 15, 2013 at 07:16 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.1
 
@@ -25,17 +25,29 @@ USE `facebookapi_project1`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `options`
+--
+
+CREATE TABLE IF NOT EXISTS `options` (
+  `OID` int(11) NOT NULL AUTO_INCREMENT,
+  `QID` int(11) NOT NULL,
+  `OpText` varchar(1000) NOT NULL,
+  PRIMARY KEY (`OID`),
+  KEY `fk_QID` (`QID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1626 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `question`
 --
 
 CREATE TABLE IF NOT EXISTS `question` (
-  `QID` int(10) NOT NULL,
-  `SID` int(10) NOT NULL,
-  `QuesText` text NOT NULL,
-  `OptionText` text NOT NULL,
-  PRIMARY KEY (`QID`),
-  KEY `SID` (`SID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `QID` int(11) NOT NULL AUTO_INCREMENT,
+  `UID` bigint(20) NOT NULL,
+  `QuesText` varchar(1000) NOT NULL,
+  PRIMARY KEY (`QID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
 
 -- --------------------------------------------------------
 
@@ -44,43 +56,12 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 CREATE TABLE IF NOT EXISTS `results` (
-  `RID` int(11) NOT NULL,
-  `UID` int(11) NOT NULL,
-  `SID` int(11) NOT NULL,
-  `QID` int(11) NOT NULL,
-  `OptionText` text NOT NULL,
-  PRIMARY KEY (`RID`),
-  KEY `UID` (`UID`),
-  KEY `SID` (`SID`),
-  KEY `QID` (`QID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `survey`
---
-
-CREATE TABLE IF NOT EXISTS `survey` (
-  `SID` int(10) NOT NULL,
-  `UID` int(10) NOT NULL,
-  `CreatedDate` datetime NOT NULL,
-  `Title` varchar(255) NOT NULL,
-  PRIMARY KEY (`SID`),
-  KEY `UID` (`UID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `UID` int(10) NOT NULL,
-  `SID` int(11) NOT NULL,
-  PRIMARY KEY (`UID`),
-  KEY `SID` (`SID`)
+  `UID` bigint(20) NOT NULL,
+  `QID` int(11) DEFAULT NULL,
+  `OID` int(11) DEFAULT NULL,
+  `OptSelected` varchar(1000) DEFAULT NULL,
+  KEY `QID` (`QID`),
+  KEY `OID` (`OID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -88,30 +69,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 --
--- Constraints for table `question`
+-- Constraints for table `options`
 --
-ALTER TABLE `question`
-  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`SID`) REFERENCES `survey` (`SID`);
-
---
--- Constraints for table `results`
---
-ALTER TABLE `results`
-  ADD CONSTRAINT `results_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`),
-  ADD CONSTRAINT `results_ibfk_2` FOREIGN KEY (`SID`) REFERENCES `survey` (`SID`),
-  ADD CONSTRAINT `results_ibfk_3` FOREIGN KEY (`QID`) REFERENCES `question` (`QID`);
-
---
--- Constraints for table `survey`
---
-ALTER TABLE `survey`
-  ADD CONSTRAINT `survey_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`SID`) REFERENCES `survey` (`SID`);
+ALTER TABLE `options`
+  ADD CONSTRAINT `fk_QID` FOREIGN KEY (`QID`) REFERENCES `question` (`QID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
