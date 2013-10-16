@@ -39,22 +39,6 @@ if ($user) {
    <?php
     include 'header.php'
   ?>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Loading Bootstrap -->
-  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-  <!-- Loading Flat UI -->
-  <link href="css/flat-ui.css" rel="stylesheet">
-  <link rel="shortcut icon" href="images/favicon.ico">
-
-  <!-- Loading customized UI -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-  <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
-  <![endif]-->
 </head>
 <body>
   <div class="page edit-page">
@@ -97,12 +81,10 @@ if ($user) {
             <a id="addBtn" class="btn btn-primary btn-lg btn-block btn-danger" href="#">Add</a>
           </div>
         </div>
-
-        <input type="submit" value="SUBMIT"> 
  
         <div id="submitBtnRow" class="row">
           <div class="form-group">
-            <input type ="submit" id="submitBtn" class="btn btn-primary btn-lg btn-block" value="SUBMIT">Submit</a>
+            <input type ="submit" id="submitBtn" class="btn btn-primary btn-lg btn-block" value="Submit">
           </div>
         </div>
 

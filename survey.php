@@ -58,29 +58,13 @@ $resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT m
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Edit</title>
+  <title>Survey</title>
   <?php
     include 'header.php'
   ?>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Loading Bootstrap -->
-  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-  <!-- Loading Flat UI -->
-  <link href="css/flat-ui.css" rel="stylesheet">
-  <link rel="shortcut icon" href="images/favicon.ico">
-
-  <!-- Loading customized UI -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-  <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
-  <![endif]-->
 </head>
 <body>
-  <div class="page edit-page">
+  <div class="page survey-page">
     <h1>
       Survey
     </h1>
@@ -139,7 +123,7 @@ $resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT m
         </div>
         <!-- end row -->
  
-        <div id="submitBtnRow" class="row">
+        <div id="submitBtnRow" class="row top-plus">
           <div class="form-group">
             <input type ="submit" id="submitBtn" class="btn btn-primary btn-lg btn-block" value="Submit">
           </div>
@@ -149,20 +133,10 @@ $resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT m
       </div>
     </div>
   </div>
-  <!-- Load JS here for greater good -->
-  <script src="js/jquery-1.8.3.min.js"></script>
-  <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="js/jquery.ui.touch-punch.min.js"></script>
-  <script src="js/jquery.tmpl.min.js"></script>
-  <script src="js/jquery.tagsinput.js"></script>
-  <script src="js/jquery.placeholder.js"></script>
 
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap-select.js"></script>
-  <script src="js/bootstrap-switch.js"></script>
-
-  <script src="js/flatui-checkbox.js"></script>
-  <script src="js/flatui-radio.js"></script>
+<?php
+  include 'footer.php'
+?>
 
 </body>
 </html>
