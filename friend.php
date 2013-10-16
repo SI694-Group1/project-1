@@ -146,7 +146,7 @@ if ($user) {
                 <input type="hidden" name="json" id="json_string" value="" />
                 <!-- <input type="submit" id="submitBtn" class="btn btn-info btn-lg btn-block" value="SUBMIT">Submit</a> -->
                 <a href="javascript: submitform()">Submit</a>
-              </from>
+              </form>
             </div>
           </div>
         </div><!-- /submitBtnRow -->

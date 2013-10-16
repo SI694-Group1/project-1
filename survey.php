@@ -36,7 +36,7 @@ if ($user) {
 
 mysql_select_db("facebookapi_project1");
 
-$resultques = mysqli_query($con,"SELECT QuesText from question where QID = (SELECT max(QID) from question where UID = '$user')");
+$resultques = mysqli_query($con,"SELECT QuesText from question where QID = (SELECT max(QID) from results where UID = '$user')");
 
 // while($row = mysqli_fetch_array($resultques))
 //   {
@@ -45,7 +45,7 @@ $resultques = mysqli_query($con,"SELECT QuesText from question where QID = (SELE
 //   }
 //   echo "<br>";
 
-$resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT max(QID) from question where UID = '$user')");
+$resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT max(QID) from results where UID = '$user')");
 
 // while($row = mysqli_fetch_array($resultopt))
 //   {
@@ -70,7 +70,7 @@ $resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT m
     </h1>
     <div class="container">
       <div class="edit-wrapper">
-        <form method="post" action="input.php">
+        <form method="post" action="result.php">
         <div class="row bottom-plus">
           <div class="form-group">
             <label class="radio">
@@ -89,7 +89,7 @@ $resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT m
               <input type="radio" name="group1" value="1" data-toggle="radio">
               <?php 
                 while($row = mysqli_fetch_array($resultopt)) {
-                  echo $row['OpText'];
+                 echo $row['OpText']; 
                 }
               ?>
             </label>
@@ -114,9 +114,9 @@ $resultopt = mysqli_query($con,"SELECT OpText from options where QID = (SELECT m
             <label class="radio">
               <input type="radio" name="group1" value="1" data-toggle="radio">
               <?php 
-                while($row = mysqli_fetch_array($resultopt)) {
+                /*while($row = mysqli_fetch_array($resultopt)) {*/
                   echo $row['OpText'];
-                }
+                /*}*/
               ?>
             </label>
           </div>

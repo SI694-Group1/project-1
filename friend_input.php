@@ -48,7 +48,7 @@ if ($user) {
 $userarray = $_POST['json'];
 $userarrayToDb = explode(",", $userarray);
 /*$userarrayToDb = implode("array_separator", $userarray);*/
-echo($userarrayToDb[0]);
+/*echo($userarrayToDb[0]);*/
 mysql_select_db("facebookapi_project1");
 //inserting question details
 
@@ -62,7 +62,7 @@ mysqli_query($con, $results1);  //execute question details insert
     foreach ($userarrayToDb as $value) 
     {
       $results2 = "INSERT INTO results (UID) VALUES ('$value');";
-      echo "$results2";
+      /*echo "$results2";*/
       mysqli_query($con, $results2);  //execute question details insert
     }
 
@@ -71,10 +71,11 @@ $results3 = "UPDATE results
               WHERE QID IS NULL;";
 //inserting option details
 mysqli_query($con, $results3);  //execute question details insert
-$userpost = "SELECT max(QID) from question WHERE UID = '$user';";
+echo "Results table updated, survey link posted on timeline";
+/*$userpost = "SELECT max(QID) from question WHERE UID = '$user';";
 if($user)
 {
 $ret_obj = $facebook->api('/me/feed', 'POST', array( 'link' => 'http://localhost/project-1/participant-response.php/?qid=', 'message' => 'Please take this survey', 'access_token' => $access_token));
-}
+}*/
 
 ?>
