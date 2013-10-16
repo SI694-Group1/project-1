@@ -118,20 +118,7 @@ if ($user) {
               <span class="dr-icon dr-icon-menu"></span>
               <a class="dr-label">Question</a>
             </div>
-            <ul>
-              <li>
-                <span class="input-icon fui-radio-unchecked"></span>
-                <a href="#">option 1&nbsp;-&nbsp;55%</a>
-              </li>
-              <li>
-                <span class="input-icon fui-radio-unchecked"></span>
-                <a href="#">option 2&nbsp;-&nbsp;25%</a>
-              </li>
-              <li>
-                <span class="input-icon fui-radio-unchecked"></span>
-                <a href="#">option 3&nbsp;-&nbsp;20%</a>
-              </li>
-            </ul>
+            <ul id="resultList"></ul>
           </nav>
         </div>
         <div class="col-md-8">
@@ -140,7 +127,7 @@ if ($user) {
           </div>
         </div>
       </div>
-      <div class="row top-plus">
+      <div class="row">
         <div class="col-md-8 col-md-offset-4">
           <div id="commentBG">
             <div id="resultComments" class="fb-comments" data-href="http://localhost/project-1/result.php" data-numposts="5" data-width="670px"></div>            
@@ -154,16 +141,27 @@ if ($user) {
   <?php
   include 'footer.php'
   ?>
+  
+  <script id="resultTemplate" type="text/x-jquery-tmpl">
+    <li>
+      <span class="input-icon fui-radio-unchecked"></span>
+      <a href="#">${option}&nbsp;-&nbsp;${value}%</a>
+    </li>
+  </script>  
+  
   <script>
+  var data = [
+    {option: "option1", value: 55},
+    {option: "option2", value: 25},
+    {option: "option3", value: 20},
+  ];
   
   $(document).ready(function() {
         //Do something
+        $('#resultTemplate').tmpl(data).appendTo('#resultList');
+        
         $("#barChartContainer").dxChart({
-          dataSource: [
-          {option: "option1", value: 55},
-          {option: "option2", value: 25},
-          {option: "option3", value: 20},
-          ],
+          dataSource: data,
           series: {
             argumentField: "option",
             valueField: "value",
